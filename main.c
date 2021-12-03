@@ -87,6 +87,9 @@ void free_tree(struct node *n) {
 }
 
 int find(int i, struct node *abr) {
+    if(abr == NULL) {
+        return 0;
+    }
     struct node* current = abr;
     while(1) {
 	if(i < current->v) {
@@ -109,7 +112,7 @@ int find(int i, struct node *abr) {
 
 struct node *insert(int i, struct node *abr) {
     struct node* current = abr;
-    if(find(i, abr) == 1) {
+    if(find(i, abr) == 1 || abr == NULL) {
 	return NULL;
     }
     while(1) {
